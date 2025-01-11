@@ -109,6 +109,28 @@ export default function Navbar() {
                               isMenuOpen ? "translate-x-0" : "translate-x-full"
                         }`}
                   >
+                        {/* Close Button */}
+                        <button
+                              className="absolute top-4 right-4 bg-green-100 text-green-600 p-2 rounded-full hover:bg-green-200 transition duration-200"
+                              onClick={() => setIsMenuOpen(false)}
+                        >
+                              <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    strokeWidth={1.5}
+                                    stroke="currentColor"
+                                    className="w-6 h-6"
+                              >
+                                    <path
+                                          strokeLinecap="round"
+                                          strokeLinejoin="round"
+                                          d="M6 18L18 6M6 6l12 12"
+                                    />
+                              </svg>
+                        </button>
+
+                        {/* Menu Links */}
                         <div className="pt-20 px-4 space-y-2">
                               {[
                                     "Home",
