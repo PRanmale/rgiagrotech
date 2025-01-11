@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Leaf, Menu, X, ShoppingCart } from "lucide-react";
 import logo from "../../src/WhatsApp Image 2025-01-11 at 15.39.40_348b1bd1.jpg";
+import { ImWhatsapp } from "react-icons/im";
 
 export default function Navbar() {
       const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -25,9 +26,15 @@ export default function Navbar() {
                         <div className="flex items-center justify-between h-20">
                               <div className="flex items-center">
                                     <div className="flex items-center gap-2 group">
-                                          <div className="bg-green-500 rounded-lg p-2 transform group-hover:rotate-12 transition-transform duration-300">
-                                                <Leaf className="h-6 w-6 text-white" />
+                                          <div className="bg-green-500 rounded-lg p-1 transform group-hover:rotate-12 transition-transform duration-300">
+                                                {/* <Leaf className="h-6 w-6 text-white" /> */}
+                                                <img
+                                                      src={logo}
+                                                      width={60}
+                                                      height={60}
+                                                />
                                           </div>
+
                                           <span
                                                 className={`text-xl font-bold ${
                                                       isScrolled
@@ -35,13 +42,8 @@ export default function Navbar() {
                                                             : "text-white"
                                                 }`}
                                           >
-                                                RGIAgroTEch
+                                                RGIAgroTech
                                           </span>
-                                          {/* <img
-                                                src={logo}
-                                                width={100}
-                                                height={100}
-                                          /> */}
                                     </div>
                               </div>
 
@@ -69,19 +71,17 @@ export default function Navbar() {
                                           </a>
                                     ))}
                                     <button className="relative bg-green-500 text-white p-2 rounded-full hover:bg-green-400 transition-colors">
-                                          <ShoppingCart className="h-5 w-5" />
-                                          <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs w-5 h-5 rounded-full flex items-center justify-center">
-                                                0
-                                          </span>
+                                          <a href="https://wa.me/8551886351">
+                                                <ImWhatsapp className="h-5 w-5" />
+                                          </a>
                                     </button>
                               </div>
 
                               <div className="md:hidden flex items-center gap-4">
                                     <button className="relative bg-green-500 text-white p-2 rounded-full hover:bg-green-400 transition-colors">
-                                          <ShoppingCart className="h-5 w-5" />
-                                          <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs w-5 h-5 rounded-full flex items-center justify-center">
-                                                0
-                                          </span>
+                                          <a href="https://wa.me/8551886351">
+                                                <ImWhatsapp className="h-5 w-5" />
+                                          </a>
                                     </button>
                                     <button
                                           onClick={() =>
