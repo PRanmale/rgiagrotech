@@ -1,5 +1,7 @@
-import React, { useEffect, useState } from "react";
-import { X, Star, Leaf, Truck, Package, ShoppingCart } from "lucide-react";
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { X, Star, Truck, Package, ShoppingCart } from "lucide-react";
+import { Product, products } from "../data/product";
 
 const disableScrollClass = `
   .no-scroll {
@@ -7,167 +9,12 @@ const disableScrollClass = `
     height: 100vh;
   }
 `;
-// Products array remains the same...
-const products = [
-      {
-            id: 1,
-            name: "Organic Compost",
-            description: "Rich in nutrients to boost soil fertility.",
-            details: "This compost is made from 100% organic waste, providing essential nutrients for plant growth.",
-            benefits: [
-                  "Improves soil structure",
-                  "Increases water retention",
-                  "Eco-friendly and sustainable",
-            ],
-            image: "https://cdn.pixabay.com/photo/2023/08/08/15/15/strawberries-8177601_1280.jpg",
-            price: "$15",
-            rating: 4.8,
-            size: "10 kg bag",
-            coverage: "Up to 50 sq. ft.",
-      },
-      {
-            id: 2,
-            name: "Liquid Fertilizer",
-            description: "Quick absorption formula for faster growth.",
-            details: "Our liquid fertilizer is enriched with essential minerals for rapid plant development.",
-            benefits: [
-                  "Promotes fast growth",
-                  "Easy to apply",
-                  "Highly concentrated",
-            ],
-            image: "https://cdn.pixabay.com/photo/2023/08/08/15/15/strawberries-8177601_1280.jpg",
-            price: "$20",
-            rating: 4.6,
-            size: "1 L bottle",
-            coverage: "100 sq. ft. per liter",
-      },
-      {
-            id: 3,
-            name: "Organic Potting Mix",
-            description: "Ready-to-use mix for all types of plants.",
-            details: "Specially formulated for container gardening with balanced nutrients.",
-            benefits: [
-                  "Ideal for pots and planters",
-                  "Improves drainage",
-                  "Contains organic matter",
-            ],
-            image: "https://cdn.pixabay.com/photo/2023/08/08/15/15/strawberries-8177601_1280.jpg",
-            price: "$12",
-            rating: 4.7,
-            size: "5 kg bag",
-            coverage: "10 pots (12-inch diameter)",
-      },
-      {
-            id: 4,
-            name: "Bio-Insecticide",
-            description: "Effective pest control without harmful chemicals.",
-            details: "An eco-friendly solution to protect plants from pests.",
-            benefits: [
-                  "Non-toxic",
-                  "Environmentally safe",
-                  "Long-lasting protection",
-            ],
-            image: "https://cdn.pixabay.com/photo/2023/08/08/15/15/strawberries-8177601_1280.jpg",
-            price: "$18",
-            rating: 4.5,
-            size: "500 ml bottle",
-            coverage: "50 sq. ft.",
-      },
-      {
-            id: 5,
-            name: "Plant Growth Stimulant",
-            description: "Enhances growth and increases yield.",
-            details: "Boosts plant metabolism and improves resistance to stress.",
-            benefits: [
-                  "Strengthens plants",
-                  "Increases resistance to disease",
-                  "Eco-friendly",
-            ],
-            image: "https://cdn.pixabay.com/photo/2023/08/08/15/15/strawberries-8177601_1280.jpg",
-            price: "$22",
-            rating: 4.9,
-            size: "500 ml bottle",
-            coverage: "50 sq. ft.",
-      },
-      {
-            id: 6,
-            name: "Organic Lawn Feed",
-            description: "Keeps your lawn lush and green.",
-            details: "Specially designed for lawns, ensuring healthy growth.",
-            benefits: [
-                  "No harmful chemicals",
-                  "Improves soil health",
-                  "Provides slow-release nutrients",
-            ],
-            image: "https://cdn.pixabay.com/photo/2023/08/08/15/15/strawberries-8177601_1280.jpg",
-            price: "$25",
-            rating: 4.7,
-            size: "5 kg bag",
-            coverage: "100 sq. ft.",
-      },
-      {
-            id: 7,
-            name: "Soil Conditioner",
-            description: "Restores soil vitality for healthier plants.",
-            details: "Enhances soil properties for better plant growth.",
-            benefits: [
-                  "Balances pH",
-                  "Improves aeration",
-                  "Promotes root development",
-            ],
-            image: "https://cdn.pixabay.com/photo/2023/08/08/15/15/strawberries-8177601_1280.jpg",
-            price: "$17",
-            rating: 4.6,
-            size: "10 kg bag",
-            coverage: "50 sq. ft.",
-      },
-      {
-            id: 8,
-            name: "Organic Pesticide",
-            description: "Safe and effective pest control.",
-            details: "Protects plants without harming beneficial insects.",
-            benefits: ["Non-toxic", "Easy to use", "Long-lasting effect"],
-            image: "https://cdn.pixabay.com/photo/2023/08/08/15/15/strawberries-8177601_1280.jpg",
-            price: "$19",
-            rating: 4.5,
-            size: "500 ml bottle",
-            coverage: "50 sq. ft.",
-      },
-      {
-            id: 9,
-            name: "Plant Booster",
-            description: "Stimulates growth and flowering.",
-            details: "Specially formulated to boost flowering and fruit production.",
-            benefits: [
-                  "Encourages blooming",
-                  "Increases fruit yield",
-                  "Environmentally safe",
-            ],
-            image: "https://cdn.pixabay.com/photo/2023/08/08/15/15/strawberries-8177601_1280.jpg",
-            price: "$30",
-            rating: 4.9,
-            size: "1 L bottle",
-            coverage: "100 sq. ft.",
-      },
-];
 
 export default function Products() {
-      type Product = {
-            id: number;
-            name: string;
-            description: string;
-            details: string;
-            benefits: string[];
-            image: string;
-            price: string;
-            rating: number;
-            size: string;
-            coverage: string;
-      };
-
       const [selectedProduct, setSelectedProduct] = useState<Product | null>(
             null
       );
+      const navigate = useNavigate();
 
       useEffect(() => {
             if (selectedProduct) {
@@ -215,7 +62,7 @@ export default function Products() {
                                                       }ms`,
                                                 }}
                                           >
-                                                <div className="relative overflow-hidden aspect-[4/3]">
+                                                <div className="relative overflow-hidden aspect-[4/4]">
                                                       <img
                                                             src={product.image}
                                                             alt={product.name}
@@ -224,10 +71,10 @@ export default function Products() {
                                                       <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                                                       <button
                                                             onClick={() =>
-                                                                  setSelectedProduct(
-                                                                        product
+                                                                  navigate(
+                                                                        `/product/${product.id}`
                                                                   )
-                                                            } // Fix: Pass the selected product
+                                                            }
                                                             className="absolute bottom-4 left-4 bg-white text-green-800 px-6 py-2 rounded-full font-medium transform translate-y-12 group-hover:translate-y-0 transition-transform duration-300"
                                                       >
                                                             View Details
@@ -258,13 +105,13 @@ export default function Products() {
                                                                         product.price
                                                                   }
                                                             </span>
-                                                            <button
+                                                            {/* <button
                                                                   className="bg-green-600 text-white px-4 py-2 rounded-full font-medium
                            hover:bg-green-500 transition-colors flex items-center gap-2"
                                                             >
                                                                   <ShoppingCart className="h-4 w-4" />
                                                                   Add to Cart
-                                                            </button>
+                                                            </button> */}
                                                       </div>
                                                 </div>
                                           </div>
@@ -340,30 +187,6 @@ export default function Products() {
                                                             <h3 className="font-semibold text-gray-900 mb-4 text-lg">
                                                                   Key Benefits
                                                             </h3>
-                                                            <ul className="space-y-3">
-                                                                  {selectedProduct.benefits.map(
-                                                                        (
-                                                                              benefit,
-                                                                              index
-                                                                        ) => (
-                                                                              <li
-                                                                                    key={
-                                                                                          index
-                                                                                    }
-                                                                                    className="flex items-center gap-3 text-gray-700"
-                                                                              >
-                                                                                    <div className="bg-green-100 p-2 rounded-full">
-                                                                                          <Leaf className="h-5 w-5 text-green-600" />
-                                                                                    </div>
-                                                                                    <span>
-                                                                                          {
-                                                                                                benefit
-                                                                                          }
-                                                                                    </span>
-                                                                              </li>
-                                                                        )
-                                                                  )}
-                                                            </ul>
                                                       </div>
 
                                                       {/* Package and Coverage Info */}
