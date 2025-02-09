@@ -1,8 +1,10 @@
 import React from "react";
 import { ArrowRight, Leaf, ShieldCheck, Sprout } from "lucide-react";
 import Stats from "./Stats";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function Hero() {
+      const navigate = useNavigate();
       return (
             <div id="home" className="relative min-h-screen">
                   {/* Background with overlay */}
@@ -24,7 +26,8 @@ export default function Hero() {
                                           <div className="flex items-center gap-2 text-white mb-4">
                                                 <Leaf className="h-8 w-8" />
                                                 <span className="text-2xl font-bold">
-                                                      RGIAgroTech
+                                                      Ranmale Group of
+                                                      Industries Agrotech
                                                 </span>
                                           </div>
                                           <div className="flex gap-4 mb-6">
@@ -44,10 +47,10 @@ export default function Hero() {
                                           className="text-4xl md:text-6xl font-bold text-white leading-tight animate-fade-in-up"
                                           style={{ animationDelay: "150ms" }}
                                     >
-                                          Nurture Your Soil,
+                                          One Step Towards
                                           <br />
                                           <span className="text-green-400">
-                                                Grow Your Future
+                                                Sustainability
                                           </span>
                                     </h1>
 
@@ -67,14 +70,19 @@ export default function Hero() {
                                           className="flex flex-wrap gap-4 animate-fade-in-up"
                                           style={{ animationDelay: "450ms" }}
                                     >
-                                          <button
-                                                className="bg-green-500 hover:bg-green-400 text-white px-8 py-4 rounded-full font-semibold 
+                                          <a href={"#products"}>
+                                                <button
+                                                      className="bg-green-500 hover:bg-green-400 text-white px-8 py-4 rounded-full font-semibold 
                        flex items-center gap-2 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-green-500/25"
-                                          >
-                                                Shop Now{" "}
-                                                <ArrowRight className="h-5 w-5" />
-                                          </button>
+                                                >
+                                                      Shop Now{" "}
+                                                      <ArrowRight className="h-5 w-5" />
+                                                </button>
+                                          </a>
                                           <button
+                                                onClick={() =>
+                                                      navigate("/learn-more")
+                                                }
                                                 className="bg-white/10 hover:bg-white/20 text-white px-8 py-4 rounded-full font-semibold 
                        backdrop-blur-md transition-all duration-300"
                                           >

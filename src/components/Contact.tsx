@@ -88,7 +88,7 @@ export default function Contact() {
                                                 <div className="flex items-center gap-4">
                                                       <Phone className="h-6 w-6 text-green-600" />
                                                       <span className="text-gray-600">
-                                                            +91 9370878260
+                                                            +91 8805057121
                                                       </span>
                                                 </div>
                                                 <div className="flex items-center gap-4">

@@ -1,11 +1,21 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { Star, Truck, Package, ShoppingCart, ArrowLeft } from "lucide-react";
+import {
+      Star,
+      Truck,
+      Package,
+      ShoppingCart,
+      ArrowLeft,
+      Leaf,
+} from "lucide-react";
 import { products } from "../data/product";
 
 type Language = "en" | "mr";
 
 export default function ProductDetail() {
+      useEffect(() => {
+            window.scrollTo(0, 0);
+      }, []);
       const [language, setLanguage] = useState<Language>("en");
       const { id } = useParams();
       const navigate = useNavigate();
@@ -137,16 +147,30 @@ export default function ProductDetail() {
                                                                   ? "Key Benefits"
                                                                   : "प्रमुख फायदे"}
                                                       </h2>
-                                                      {/* <ul className="space-y-2 sm:space-y-3">
-                    {content.benefits.map((benefit, index) => (
-                      <li key={index} className="flex items-center gap-3">
-                        <div className="bg-green-100 p-1.5 sm:p-2 rounded-full flex-shrink-0">
-                          <Leaf className="h-4 w-4 sm:h-5 sm:w-5 text-green-600" />
-                        </div>
-                        <span className="text-gray-700 text-sm sm:text-base">{benefit}</span>
-                      </li>
-                    ))}
-                  </ul> */}
+                                                      <ul className="space-y-2 sm:space-y-3">
+                                                            {content.benefits.map(
+                                                                  (
+                                                                        benefit,
+                                                                        index
+                                                                  ) => (
+                                                                        <li
+                                                                              key={
+                                                                                    index
+                                                                              }
+                                                                              className="flex items-center gap-3"
+                                                                        >
+                                                                              <div className="bg-green-100 p-1.5 sm:p-2 rounded-full flex-shrink-0">
+                                                                                    <Leaf className="h-4 w-4 sm:h-5 sm:w-5 text-green-600" />
+                                                                              </div>
+                                                                              <span className="text-gray-700 text-sm sm:text-base">
+                                                                                    {
+                                                                                          benefit
+                                                                                    }
+                                                                              </span>
+                                                                        </li>
+                                                                  )
+                                                            )}
+                                                      </ul>
                                                 </div>
 
                                                 {/* Specifications */}
