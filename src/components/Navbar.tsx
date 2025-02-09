@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Leaf, Menu, X, ShoppingCart } from "lucide-react";
 import logo from "../../src/WhatsApp Image 2025-01-11 at 15.39.40_348b1bd1.jpg";
 import { ImWhatsapp } from "react-icons/im";
+import { Link } from "react-router-dom";
 
 export default function Navbar() {
       const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -25,26 +26,28 @@ export default function Navbar() {
                   <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                         <div className="flex items-center justify-between h-20">
                               <div className="flex items-center">
-                                    <div className="flex items-center gap-2 group">
-                                          <div className="bg-green-500 rounded-lg p-1 transform group-hover:rotate-12 transition-transform duration-300">
-                                                {/* <Leaf className="h-6 w-6 text-white" /> */}
-                                                <img
-                                                      src={logo}
-                                                      width={60}
-                                                      height={60}
-                                                />
-                                          </div>
+                                    <a href={"#home"}>
+                                          <div className="flex items-center gap-2 group">
+                                                <div className="bg-green-500 rounded-lg p-1 transform group-hover:rotate-12 transition-transform duration-300">
+                                                      {/* <Leaf className="h-6 w-6 text-white" /> */}
+                                                      <img
+                                                            src={logo}
+                                                            width={60}
+                                                            height={60}
+                                                      />
+                                                </div>
 
-                                          <span
-                                                className={`text-xl font-bold ${
-                                                      isScrolled
-                                                            ? "text-green-800"
-                                                            : "text-white"
-                                                }`}
-                                          >
-                                                RGIAgroTech
-                                          </span>
-                                    </div>
+                                                <span
+                                                      className={`text-xl font-bold ${
+                                                            isScrolled
+                                                                  ? "text-green-800"
+                                                                  : "text-white"
+                                                      }`}
+                                                >
+                                                      RGIAgroTech
+                                                </span>
+                                          </div>
+                                    </a>
                               </div>
 
                               <div className="hidden md:flex items-center space-x-8">
