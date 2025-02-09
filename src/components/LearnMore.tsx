@@ -52,7 +52,7 @@ export default function LearnMore() {
                                     Back to Home
                               </button>
                               <h1 className="text-4xl md:text-5xl font-bold mb-4">
-                                    Learn More About GreenGrow
+                                    Learn More About RGIAgrotech
                               </h1>
                               <p className="text-xl text-green-100 max-w-3xl">
                                     Discover how we're revolutionizing
@@ -185,7 +185,7 @@ export default function LearnMore() {
                               <p className="text-green-100 mb-8 max-w-2xl mx-auto">
                                     Join thousands of farmers who have already
                                     embraced sustainable farming with
-                                    GreenGrow's organic solutions.
+                                    RGIAgrotech's organic solutions.
                               </p>
                               <button
                                     onClick={() => navigate("/")}
