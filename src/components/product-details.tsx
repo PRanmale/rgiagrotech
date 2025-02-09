@@ -209,7 +209,7 @@ export default function ProductDetail() {
                                                 </div>
 
                                                 {/* Desktop Price and CTA */}
-                                                <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pt-6 border-t">
+                                                {/* <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pt-6 border-t">
                                                       <div className="hidden lg:block">
                                                             <span className="text-3xl sm:text-4xl font-bold text-green-600">
                                                                   {
@@ -236,7 +236,7 @@ export default function ProductDetail() {
                                                                         : "कार्टमध्ये जोडा"}
                                                             </span>
                                                       </button>
-                                                </div>
+                                                </div> */}
                                           </div>
                                     </div>
                               </div>
